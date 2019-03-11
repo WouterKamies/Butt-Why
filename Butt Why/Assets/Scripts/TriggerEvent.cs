@@ -38,15 +38,16 @@ public class TriggerEvent : MonoBehaviour
 
         if (inCollider == false && spacePressed == true)
         {
-            StartCoroutine(Pause());
+            //StartCoroutine(Pause());
+            Debug.Log("Nope");
         }
 
-        IEnumerator Pause()
-        {
-            GameObject bouncer = GameObject.Find("Bouncer");
-            bouncer.GetComponent<BouncerMovement>().enabled = false;
-            Task.Delay(2000).Wait();
-            bouncer.GetComponent<BouncerMovement>().enabled = true;
-        }
+       // IEnumerator Pause()
+       // {
+            //GameObject bouncer = GameObject.Find("Bouncer");
+            //bouncer.GetComponent<BouncerMovement>().enabled = false;
+            //Task.Delay(2000).Wait();
+            //bouncer.GetComponent<BouncerMovement>().enabled = true;
+        //}
     }
 }
