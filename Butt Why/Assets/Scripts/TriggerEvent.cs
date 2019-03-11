@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Threading.Tasks;
+using UnityEngine;
 
 public class TriggerEvent : MonoBehaviour
 {
@@ -34,9 +36,17 @@ public class TriggerEvent : MonoBehaviour
             gameManager.busted();
         }
 
-        //if (inCollider == false && spacePressed == true)
-        //{
-            //gameManager.bouncerInput();
-        //}
+        if (inCollider == false && spacePressed == true)
+        {
+            StartCoroutine(Pause());
+        }
+
+        IEnumerator Pause()
+        {
+            GameObject bouncer = GameObject.Find("Bouncer");
+            bouncer.GetComponent<BouncerMovement>().enabled = false;
+            Task.Delay(2000).Wait();
+            bouncer.GetComponent<BouncerMovement>().enabled = true;
+        }
     }
 }
